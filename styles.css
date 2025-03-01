@@ -1,0 +1,114 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background: #f1f8e9;
+    text-align: center;
+}
+
+.task-creation {
+    margin-bottom: 30px;
+}
+
+.task-creation input {
+    padding: 12px;
+    width: 260px;
+    margin-right: 12px;
+    border-radius: 8px;
+    border: 2px solid #b3e5fc;
+    background-color: #ffffff;
+    font-size: 16px;
+}
+
+.task-creation button {
+    padding: 12px;
+    background: #00796b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.task-creation button:hover {
+    background: #004d40;
+}
+
+.kanban-board {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.kanban-column {
+    width: 30%;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e1f5fe;
+}
+
+h2 {
+    text-align: center;
+    color: #00796b;
+    font-size: 1.6em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    min-height: 100px;
+}
+
+li {
+    background: linear-gradient(145deg, #66bb6a, #388e3c); /* Two-shaded green gradient */
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 12px;
+    cursor: grab;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.delete-btn {
+    background: #e53935;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #d32f2f;
+}
+
+.dndDragging {
+    opacity: 0.5;
+}
+
+.dndDraggingSource {
+    display: none;
+}
+
+.dndPlaceholder {
+    background-color: #e0e0e0;
+    display: block;
+    min-height: 50px;
+    border-radius: 8px;
+    margin: 10px;
+}

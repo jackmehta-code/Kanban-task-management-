@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="kanbanApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Task Manager</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-drag-and-drop-lists/2.1.0/angular-drag-and-drop-lists.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body ng-controller="KanbanController">
+
+    <div class="task-creation">
+        <input type="text" ng-model="newTaskName" placeholder="Enter new task" ng-keypress="($event.keyCode === 13) ? addTask() : null">
+        <button ng-click="addTask()">Add Task</button>
+    </div>
+
+    <div class="kanban-board">
+        <div class="kanban-column">
+            <h2>To Do</h2>
+            <ul dnd-list="tasks['To Do']">
+                <li ng-repeat="task in tasks['To Do']" 
+                    dnd-draggable="task" 
+                    dnd-moved="tasks['To Do'].splice($index, 1)"
+                    dnd-effect-allowed="move">
+                    {{ task.name }}
+                    <button class="delete-btn" ng-click="deleteTask('To Do', $index)">X</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="kanban-column">
+            <h2>In Progress</h2>
+            <ul dnd-list="tasks['In Progress']">
+                <li ng-repeat="task in tasks['In Progress']" 
+                    dnd-draggable="task" 
+                    dnd-moved="tasks['In Progress'].splice($index, 1)"
+                    dnd-effect-allowed="move">
+                    {{ task.name }}
+                    <button class="delete-btn" ng-click="deleteTask('In Progress', $index)">X</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="kanban-column">
+            <h2>Done</h2>
+            <ul dnd-list="tasks['Done']">
+                <li ng-repeat="task in tasks['Done']" 
+                    dnd-draggable="task" 
+                    dnd-moved="tasks['Done'].splice($index, 1)"
+                    dnd-effect-allowed="move">
+                    {{ task.name }}
+                    <button class="delete-btn" ng-click="deleteTask('Done', $index)">X</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
